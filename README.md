@@ -32,6 +32,10 @@
 -   DATABASE: Na pasta k8s -> `kubectl apply -f ./postgres`
 -   API: Na pasta k8s -> `kubectl apply -f ./api`
 
+## DOCKER COMPOSE
+
+-   `docker-compose up`
+
 ## DATABASE
 
 -   run: docker run -d --name postgres -e POSTGRES_PASSWORD=docker -e

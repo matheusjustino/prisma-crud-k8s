@@ -29,4 +29,4 @@ spec:
         env:
           - name: DATABASE_URL
             value: postgresql://postgres:docker@postgres-service:5432/prismadb?schema=public
-        args: ["-c","./.docker/entrypoint.sh;while true; do echo hello; sleep 10;done"]
+        args: ["-c","./.docker/entrypoint.sh"]
