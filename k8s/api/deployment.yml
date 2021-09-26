@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prisma-crud-deployment
+  labels:
+    app: prisma-crud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prisma-crud
+  template:
+    metadata:
+      labels:
+        app: prisma-crud
+    spec:
+      containers:
+      - name: app-prisma-crud
+        image: matheusjustino/prisma-crud
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            memory: 250Mi
+            cpu: 500m
+          requests:
+            memory: 150Mi
+            cpu: 250m
+        env:
+          - name: DATABASE_URL
+            value: postgresql://postgres:docker@postgres-service:5432/prismadb?schema=public
+        args: ["-c","./.docker/entrypoint.sh;while true; do echo hello; sleep 10;done"]

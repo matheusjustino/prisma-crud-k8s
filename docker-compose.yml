@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+    app:
+        container_name: nest-api
+        build:
+            dockerfile: Dockerfile
+            context: .
+        entrypoint:
+            dockerize -wait tcp://postgres:5432 -timeout 7s
+            ./.docker/entrypoint.sh
+        environment:
+            DATABASE_URL: 'postgresql://postgres:docker@postgres:5432/prismadb?schema=public'
+        ports:
+            - '3000:3000'
+        depends_on:
+            - postgres
+
+    postgres:
+        image: postgres
+        container_name: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: docker
+            POSTGRES_DATABASE: prismadb
+        ports:
+            - '5432:5432'
