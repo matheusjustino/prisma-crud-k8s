@@ -27,13 +27,21 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Utilizando Local
+
+-   Subir o banco com o docker (Comando abaixo)
+-   Executar a migration (Comando abaixo)
+-   Executar `yarn start:dev`
+
 ## KUBERNETES
 
+-   Executar a aplicação com o kubernetes
 -   DATABASE: Na pasta k8s -> `kubectl apply -f ./postgres`
 -   API: Na pasta k8s -> `kubectl apply -f ./api`
 
 ## DOCKER COMPOSE
 
+-   Executar a aplicação com o docker compose
 -   `docker-compose up`
 
 ## DATABASE
@@ -43,8 +51,7 @@
 
 ## MIGRATION
 
--   run: yarn migration -> Escolha o nome da migration
--   run: yarn prisma migrate reset -> Resetar o banco de dados
+-   run: yarn migrate -> Para iniciar o banco e as tabelas
 -   run: yarn prisma generate -> Sincronizar models
 
 ## PRISMA STUDIO
